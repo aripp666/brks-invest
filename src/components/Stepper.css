@@ -1,0 +1,120 @@
+/* === Wrapper utama stepper header === */
+.stepper-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 50px 20px 20px;
+  background: linear-gradient(to right, #fff8e1, #fffef7, #fff9f0); /* gradasi lembut kuning emas */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* bayangan lembut */
+  border-radius: 0 0 20px 20px;
+  z-index: 100;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  transition: padding 0.3s ease, box-shadow 0.3s ease;
+  margin: 0;
+}
+
+/* === Ornamen gradasi lembut di latar belakang === */
+.stepper-header::before,
+.stepper-header::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+}
+
+.stepper-header::before {
+  top: -120px;
+  left: -100px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle at center, rgba(255, 192, 0, 0.25), transparent 70%); /* kuning emas */
+}
+
+.stepper-header::after {
+  bottom: -80px;
+  right: -60px;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle at center, rgba(192, 0, 0, 0.25), transparent 70%); /* merah */
+}
+
+/* === Stepper container agar rapi di tengah === */
+.stepper-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === Label step (nama tahap) === */
+.MuiStepLabel-label {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #444 !important;
+  font-size: 15px;
+  transition: all 0.35s ease;
+}
+
+.MuiStepLabel-label.Mui-active {
+  color: #C00000 !important; /* Merah BRK aktif */
+  font-weight: 600;
+  transform: scale(1.1);
+}
+
+.MuiStepLabel-label.Mui-completed {
+  color: #00A000 !important; /* Hijau BRK selesai */
+  font-weight: 500;
+}
+
+/* === Step icon custom (opsional, jika ingin ikon lingkaran warna) === */
+.MuiStepIcon-root {
+  color: #FFD700; /* default kuning emas */
+  transition: all 0.3s ease;
+}
+
+.MuiStepIcon-root.Mui-active {
+  color: #C00000; /* merah aktif */
+}
+
+.MuiStepIcon-root.Mui-completed {
+  color: #00A000; /* hijau selesai */
+}
+
+/* === Responsif === */
+@media (max-width: 1024px) {
+  .stepper-header {
+    padding: 45px 15px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stepper-header {
+    padding: 40px 10px 10px;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .MuiStepLabel-label {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .MuiStepLabel-label {
+    font-size: 12px;
+  }
+
+  .stepper-container {
+    flex-direction: column;
+  }
+}
+
+/* === Hover effect untuk label stepper (estetik) === */
+.MuiStepLabel-label:hover {
+  color: #D00000 !important;
+  cursor: pointer;
+  transform: scale(1.08);
+}

@@ -1,0 +1,313 @@
+/* ===================================
+   THEME: BRK SYARIAH 
+   Kuning (utama) | Merah (semangat) | Hijau (syariah)
+   =================================== */
+
+/* PAGE */
+.produk-page {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #fffbe7, #fffef8, #f8fff8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 160px;
+  overflow-x: hidden;
+  font-family: "Inter", "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ===================================
+   TABS
+   =================================== */
+.binder-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  border-radius: 50px 50px 0 0;
+  overflow: hidden;
+  background: linear-gradient(to right, #ffe97a, #fff8c2);
+  margin-bottom: 0;
+  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: all 0.35s ease;
+}
+
+.binder-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 24px;
+  cursor: pointer;
+  color: #555;
+  font-weight: 700;
+  font-size: 1.2rem;
+  position: relative;
+  transition: all 0.35s ease;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.binder-tab:hover {
+  transform: translateY(-3px);
+  color: #d60000;
+  text-shadow: 0 0 10px rgba(252, 215, 3, 0.6);
+}
+
+.binder-tab.active {
+  color: #fff;
+  background: linear-gradient(270deg, #d60000, #fcd703, #1ca500);
+  background-size: 300% 100%;
+  animation: gradientShift 5s linear infinite;
+  transform: translateY(-6px);
+  z-index: 2;
+  box-shadow: 0 10px 28px rgba(28, 165, 0, 0.35), 0 0 18px rgba(255, 192, 0, 0.35);
+  border-radius: 25px 25px 0 0;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Divider di bawah tab */
+.binder-divider {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 1;
+}
+
+.binder-tab.active .binder-divider {
+  background: linear-gradient(90deg, #d60000, #fcd703, #1ca500);
+  box-shadow: 0 6px 20px rgba(28, 165, 0, 0.35);
+  animation: moveGradientDivider 3s linear infinite;
+}
+
+@keyframes moveGradientDivider {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===================================
+   PRODUK GRID
+   =================================== */
+.produk-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  width: 100%;
+  max-width: 1400px;
+  margin-top: -6px;
+  padding-bottom: 80px;
+}
+
+/* ===================================
+   PRODUK CARD
+   =================================== */
+.produk-card {
+  background: linear-gradient(145deg, #ffffff, #fffdf5);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(28, 165, 0, 0.08);
+  cursor: pointer;
+  position: relative;
+
+  /* Hapus animasi scroll */
+  transform: none;
+  opacity: 1;
+  transition: all 0.3s ease; /* tetap ada untuk hover saja */
+}
+
+/* hapus class show */
+.produk-card.show {
+  transform: none;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.produk-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(252, 215, 3, 0.25), 0 0 25px rgba(28, 165, 0, 0.15);
+  border-image: linear-gradient(90deg, #d60000, #fcd703, #1ca500) 1;
+}
+
+/* Gambar produk */
+.produk-image-wrapper {
+  position: relative;
+}
+
+.produk-image {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background-color: #fffef7;
+  padding: 12px;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  border-bottom: 1px solid #eee;
+  border-radius: 15px 15px 0 0;
+}
+
+.produk-card:hover .produk-image {
+  transform: scale(1.08);
+  filter: brightness(1.08);
+}
+
+/* Overlay efek */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  opacity: 0;
+  border-radius: 25px;
+  transition: all 0.35s ease;
+}
+
+.produk-card:hover .overlay {
+  opacity: 1;
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: linear-gradient(90deg, #fcd703, #d60000, #1ca500);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Info produk */
+.produk-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.produk-info h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #d60000;
+}
+
+.desc {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  min-height: 55px;
+}
+
+/* Statistik produk */
+.produk-stats {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+}
+
+.produk-stats h4 {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #d60000, #fcd703, #1ca500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.icon-stat {
+  color: #1ca500;
+  font-size: 1.3rem;
+}
+
+.return {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Fund info */
+.fund-info {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  color: #333;
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.date {
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 6px;
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+@media (max-width: 1024px) {
+  .produk-list {
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .produk-list {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+  }
+  .binder-tab {
+    font-size: 1rem;
+    padding: 16px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .produk-list {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    width: 95%;
+  }
+  .binder-tab {
+    font-size: 0.95rem;
+    padding: 12px 10px;
+  }
+  .tab-icon {
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,144 @@
+/* =======================================================
+   Halaman Success — Modern Futuristik Elegan
+   Warna utama: #1ca500 (hijau), #fcd703 (kuning), putih
+   Latar: gradasi lembut
+======================================================= */
+
+/* === Container Utama === */
+.success-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fefef7, #fffde7, #f0fff4);
+  font-family: 'Poppins', sans-serif;
+  padding: 50px 20px;
+}
+
+/* === Card Utama === */
+.success-card {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffffcc; /* semi-transparent putih */
+  backdrop-filter: blur(15px); /* efek glassmorphism */
+  border-radius: 35px;
+  padding: 45px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.success-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 35px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* === Animasi Checkmark === */
+.checkmark-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkmark {
+  font-size: 5.5rem;
+  background: linear-gradient(135deg, #1ca500, #fcd703);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pop 0.8s ease forwards;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* === Judul & Deskripsi === */
+.success-card h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1ca500;
+  letter-spacing: 0.5px;
+}
+
+.success-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  padding: 0 10px;
+}
+
+/* === Tombol === */
+.btn-group-success {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.success-button {
+  padding: 14px 36px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #1ca500, #fcd703);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(28,165,0,0.3);
+}
+
+.success-button:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 12px 30px rgba(28,165,0,0.4);
+}
+
+.history-button {
+  padding: 14px 32px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  background: #ffffff;
+  border: 2px solid #1ca500;
+  color: #1ca500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 20px rgba(28,165,0,0.15);
+}
+
+.history-button:hover {
+  background: #1ca500;
+  color: #fff;
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 10px 28px rgba(28,165,0,0.25);
+}
+
+/* === Responsif === */
+@media (max-width: 768px) {
+  .success-card {
+    padding: 35px 20px;
+  }
+  .checkmark {
+    font-size: 4.5rem;
+  }
+  .success-card h2 {
+    font-size: 1.6rem;
+  }
+  .success-card p {
+    font-size: 0.95rem;
+  }
+  .success-button, .history-button {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+  }
+}
