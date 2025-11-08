@@ -131,7 +131,7 @@ export default function DetailProduk() {
                       setShowModal(true);
                     }}
                   />
-                  Syarat dan Ketentuan transaksi Reksa Dana.
+                  Syarat dan Ketentuan transaksi Reksa Dana. Saya telah membaca, mengerti dan menyetujui seluruh informasi pada Prospectus dan Fund Fact Sheet.
                 </label>
                 <label className="checkbox-label">
                   <input
@@ -139,8 +139,7 @@ export default function DetailProduk() {
                     checked={agreedInfo}
                     onChange={() => setAgreedInfo(!agreedInfo)}
                   />
-                  Saya telah membaca, mengerti dan menyetujui seluruh informasi pada Prospectus dan
-                  Fund Fact Sheet.
+                  Proses pembayaran transaksi pembelian Reksa Dana baru dapat dilakukan setelah profil Anda telah terverifikasi dan SID terbentuk.
                 </label>
               </div>
             </div>
