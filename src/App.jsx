@@ -8,13 +8,13 @@ import Konfirmasi from "./pages/Konfirmasi";
 import DetailProduk from "./pages/DetailProduk";
 import Success from "./pages/Success";
 import History from "./pages/History";
-
+import Login from "./pages/Login";      // pastikan path sesuai file kamu
+import Register from "./pages/Register"; // jika ada halaman register
 
 
 function LayoutWithStepper() {
   const location = useLocation();
 
-  // Tentukan step aktif berdasarkan URL
   const getActiveStep = () => {
     switch (location.pathname) {
       case "/":
@@ -31,10 +31,13 @@ function LayoutWithStepper() {
     }
   };
 
+  // Jika route login, jangan tampilkan Stepper
+  const showStepper = !["/login", "/register"].includes(location.pathname);
+
   return (
     <div style={{ padding: "20px" }}>
-      <StepperMelayu activeStepFromParent={getActiveStep()} />
-      <div style={{ marginTop: "40px" }}>
+      {showStepper && <StepperMelayu activeStepFromParent={getActiveStep()} />}
+      <div style={{ marginTop: showStepper ? "40px" : "0px" }}>
         <Routes>
           <Route path="/" element={<PilihProduk />} />
           <Route path="/pilih-produk" element={<PilihProduk />} />
@@ -44,7 +47,8 @@ function LayoutWithStepper() {
           <Route path="/konfirmasi" element={<Konfirmasi />} />
           <Route path="/success" element={<Success />} />
           <Route path="/history" element={<History />} />
-          
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </div>

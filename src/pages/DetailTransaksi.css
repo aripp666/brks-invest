@@ -212,14 +212,14 @@
 
 /* Tombol Lanjut */
 .next-btn {
-  background: #d60000;
-  color: #ffffff;
+ background: linear-gradient(90deg, #7b0f1c, #ff7a00);
+  color: white;
+  border: none;
 }
 
 .next-btn:hover {
-  background: #fcd703;
-  color: #1a1a1a;
-  transform: scale(1.05);
+  background: linear-gradient(90deg, #a51025, #ff9540);
+  transform: translateY(-2px);
 }
 
 /* === Transfer Card === */
@@ -256,6 +256,204 @@
 
 .transfer-icons img:hover {
   transform: scale(1.08);
+}
+/* =======================================================
+   KANAN - PRODUK DIPILIH (BRKS Syariah Ultimate Version)
+======================================================= */
+
+.selected-card-transaksi {
+  position: sticky;
+  top: 110px;
+  width: 340px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s ease;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  align-self: start;
+}
+
+.selected-card-transaksi:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* HEADER PRODUK */
+.selected-header-transaksi {
+  background: linear-gradient(90deg, #009f5d, #ff7a00, #7b0f1c);
+  color: white;
+  font-weight: 800;
+  text-align: center;
+  padding: 16px;
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ISI PRODUK */
+.selected-content-transaksi {
+  padding: 26px;
+  text-align: center;
+}
+
+/* GAMBAR PRODUK */
+.selected-image-transaksi {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #ffffff, #f6fff9);
+  box-shadow: inset 0 0 10px rgba(0, 159, 93, 0.08);
+  margin-bottom: 18px;
+  transition: transform 0.3s ease;
+}
+
+.selected-image-transaksi:hover {
+  transform: scale(1.02);
+}
+
+/* NAMA PRODUK */
+.selected-title-transaksi {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #7b0f1c;
+  margin-top: 10px;
+}
+
+/* TIPE PRODUK */
+.selected-type-transaksi {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #009f5d;
+  margin-bottom: 12px;
+}
+
+/* RETURN DAN NAB */
+.selected-return-transaksi,
+.selected-nab-transaksi,
+.selected-date-transaksi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: #ff7a00;
+}
+
+.selected-nab-transaksi {
+  color: #009f5d;
+}
+
+.selected-date-transaksi {
+  color: #7b0f1c;
+}
+
+.referal {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(200, 200, 200, 0.3);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 18px 20px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.referal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+.referal h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1b3a2d;
+  letter-spacing: 0.3px;
+  margin-bottom: 6px;
+}
+
+.referal input {
+  width: 60%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(180, 180, 180, 0.4);
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  color: #333;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.referal input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.referal input:focus {
+  outline: none;
+  border-color: #1e9b6a;
+  box-shadow: 0 0 0 3px rgba(30, 155, 106, 0.2);
+  background: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .referal {
+    padding: 14px 16px;
+  }
+
+  .referal h4 {
+    font-size: 0.95rem;
+  }
+
+  .referal input {
+    font-size: 0.9rem;
+  }
+}
+
+/* ANIMASI */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.selected-card-transaksi {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* RESPONSIF */
+@media (max-width: 960px) {
+  .selected-card-transaksi {
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+/* Responsif */
+@media (max-width: 992px) {
+  .detail-transaksi-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .selected-card-transaksi {
+    width: 100%;
+    max-width: 520px;
+  }
 }
 
 /* === Animasi === */

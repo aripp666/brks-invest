@@ -4,44 +4,73 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 50px 20px 20px;
-  background: linear-gradient(to right, #fff8e1, #fffef7, #fff9f0); /* gradasi lembut kuning emas */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* bayangan lembut */
-  border-radius: 0 0 20px 20px;
+  padding: 55px 5px 25px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 253, 240, 0.9),
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 248, 225, 0.9)
+  );
+  border-bottom: 1px solid rgba(255, 225, 130, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 0 0 24px 24px;
   z-index: 100;
+  backdrop-filter: blur(12px);
   overflow: hidden;
-  backdrop-filter: blur(8px);
-  transition: padding 0.3s ease, box-shadow 0.3s ease;
-  margin: 0;
+  transition: all 0.3s ease;
 }
 
-/* === Ornamen gradasi lembut di latar belakang === */
-.stepper-header::before,
-.stepper-header::after {
-  content: "";
+/* === Background efek cahaya lembut === */
+.stepper-glow-bg {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
+  inset: 0;
   z-index: -1;
 }
 
-.stepper-header::before {
+.stepper-glow-bg::before,
+.stepper-glow-bg::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -2;
+}
+
+.stepper-glow-bg::before {
   top: -120px;
   left: -100px;
-  width: 280px;
-  height: 280px;
-  background: radial-gradient(circle at center, rgba(255, 192, 0, 0.25), transparent 70%); /* kuning emas */
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.25), transparent 70%);
 }
 
-.stepper-header::after {
-  bottom: -80px;
-  right: -60px;
-  width: 240px;
-  height: 240px;
-  background: radial-gradient(circle at center, rgba(192, 0, 0, 0.25), transparent 70%); /* merah */
+.stepper-glow-bg::after {
+  bottom: -100px;
+  right: -80px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(176, 0, 32, 0.25), transparent 70%);
 }
 
-/* === Stepper container agar rapi di tengah === */
+/* === Tombol Login (kanan atas) === */
+.login-button {
+  position: absolute;
+  top: 18px;
+  right: 30px;
+  background: linear-gradient(135deg, #b00020, #ffb703, #007f5f);
+  color: white;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 10px 28px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 14px rgba(176, 0, 32, 0.25);
+  backdrop-filter: blur(4px);
+}
+
+/* === Container Stepper === */
 .stepper-container {
   max-width: 1100px;
   margin: 0 auto;
@@ -50,44 +79,59 @@
   align-items: center;
 }
 
-/* === Label step (nama tahap) === */
+/* === Label Step === */
 .MuiStepLabel-label {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   color: #444 !important;
   font-size: 15px;
+  letter-spacing: 0.3px;
   transition: all 0.35s ease;
 }
 
 .MuiStepLabel-label.Mui-active {
-  color: #C00000 !important; /* Merah BRK aktif */
+  color: #b00020 !important;
   font-weight: 600;
-  transform: scale(1.1);
+  transform: scale(1.08);
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
 }
 
 .MuiStepLabel-label.Mui-completed {
-  color: #00A000 !important; /* Hijau BRK selesai */
+  color: #007f5f !important;
   font-weight: 500;
 }
 
-/* === Step icon custom (opsional, jika ingin ikon lingkaran warna) === */
-.MuiStepIcon-root {
-  color: #FFD700; /* default kuning emas */
-  transition: all 0.3s ease;
+.MuiStepLabel-label:hover {
+  color: #c00000 !important;
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
-.MuiStepIcon-root.Mui-active {
-  color: #C00000; /* merah aktif */
+/* === Animasi Masuk === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-.MuiStepIcon-root.Mui-completed {
-  color: #00A000; /* hijau selesai */
+.stepper-header {
+  animation: fadeInUp 0.7s ease forwards;
 }
 
 /* === Responsif === */
 @media (max-width: 1024px) {
   .stepper-header {
     padding: 45px 15px 15px;
+  }
+  .login-button {
+    top: 15px;
+    right: 20px;
+    padding: 8px 22px;
+    font-size: 0.9rem;
   }
 }
 
@@ -100,6 +144,12 @@
   .MuiStepLabel-label {
     font-size: 13px;
   }
+  .login-button {
+    top: 10px;
+    right: 15px;
+    padding: 7px 18px;
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -110,11 +160,9 @@
   .stepper-container {
     flex-direction: column;
   }
-}
-
-/* === Hover effect untuk label stepper (estetik) === */
-.MuiStepLabel-label:hover {
-  color: #D00000 !important;
-  cursor: pointer;
-  transform: scale(1.08);
+  .login-button {
+    top: 8px;
+    right: 12px;
+    padding: 6px 16px;
+  }
 }

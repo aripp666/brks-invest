@@ -6,50 +6,51 @@ import StepLabel from "@mui/material/StepLabel";
 import StepConnector, { stepConnectorClasses } from "@mui/material/StepConnector";
 import { styled } from "@mui/material/styles";
 import { FaShoppingCart, FaCreditCard, FaUser, FaCheck } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import "./Stepper.css";
 
+// Custom Connector
 const CustomConnector = styled(StepConnector)(() => ({
-  [`&.${stepConnectorClasses.alternativeLabel}`]: {
-    top: 26,
-  },
+  [`&.${stepConnectorClasses.alternativeLabel}`]: { top: 28 },
   [`& .${stepConnectorClasses.line}`]: {
     height: 5,
     border: 0,
-    borderRadius: 3,
-    backgroundColor: "#e5e7eb",
+    borderRadius: 4,
+    backgroundColor: "rgba(220, 220, 220, 0.5)",
     transition: "all 0.6s ease",
-    marginLeft: 10, // beri jarak dari icon
-    marginRight: 8, // beri jarak dari icon
+    marginLeft: 12,
+    marginRight: 10,
   },
   [`&.${stepConnectorClasses.active} .${stepConnectorClasses.line}`]: {
-    backgroundImage: "linear-gradient(90deg, #d60000, #fcd703, #1ca500)",
-    boxShadow: "0 0 10px rgba(252,215,3,0.6)",
+    backgroundImage: "linear-gradient(90deg, #b00020, #ffb703, #007f5f)",
+    boxShadow: "0 0 14px rgba(255,183,3,0.6)",
   },
   [`&.${stepConnectorClasses.completed} .${stepConnectorClasses.line}`]: {
-    backgroundImage: "linear-gradient(90deg, #d60000, #fcd703, #1ca500)",
+    backgroundImage: "linear-gradient(90deg, #b00020, #ffb703, #007f5f)",
   },
 }));
 
+// Custom Step Icon
 const IconRoot = styled("div")(({ ownerState }) => ({
   backgroundImage: ownerState.completed
-    ? "linear-gradient(135deg, #1ca500, #00b300)"
+    ? "linear-gradient(135deg, #007f5f, #00a86b)"
     : ownerState.active
-    ? "linear-gradient(135deg, #d60000, #fcd703, #1ca500)"
+    ? "linear-gradient(135deg, #b00020, #ffb703, #007f5f)"
     : "none",
   backgroundColor: ownerState.completed || ownerState.active ? "transparent" : "#e5e7eb",
   color: ownerState.completed || ownerState.active ? "#fff" : "#9ca3af",
-  width: 56,
-  height: 56,
+  width: 60,
+  height: 60,
   display: "flex",
   borderRadius: "50%",
   justifyContent: "center",
   alignItems: "center",
   fontSize: 22,
   boxShadow: ownerState.active
-    ? "0 0 18px rgba(252,215,3,0.7)"
+    ? "0 0 20px rgba(255, 183, 3, 0.7)"
     : ownerState.completed
-    ? "0 0 10px rgba(28,165,0,0.4)"
-    : "none",
+    ? "0 0 10px rgba(0,127,95,0.4)"
+    : "inset 0 2px 5px rgba(0,0,0,0.08)",
   transform: ownerState.active ? "scale(1.15)" : "scale(1)",
   transition: "all 0.4s ease-in-out",
 }));
@@ -74,6 +75,7 @@ const steps = ["Pilih Produk", "Detail Transaksi", "Profil", "Konfirmasi"];
 
 export default function StepperHeader({ activeStepFromParent = 0 }) {
   const [activeStep, setActiveStep] = React.useState(activeStepFromParent);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     setActiveStep(activeStepFromParent);
@@ -81,6 +83,17 @@ export default function StepperHeader({ activeStepFromParent = 0 }) {
 
   return (
     <Box className="stepper-header">
+      {/* Background glow */}
+      <div className="stepper-glow-bg" />
+
+      {/* Login Button */}
+      <div className="login-wrapper">
+        <button className="login-button" onClick={() => navigate("/login")}>
+          Login
+        </button>
+      </div>
+
+      {/* Stepper */}
       <Stepper
         alternativeLabel
         activeStep={activeStep}

@@ -1,15 +1,25 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { FaArrowLeft, FaCreditCard } from "react-icons/fa";
+import { useNavigate, useLocation } from "react-router-dom";
+import { FaArrowLeft, FaCreditCard, FaChartLine, FaMoneyBillWave } from "react-icons/fa";
 import "./DetailTransaksi.css";
 import atmIcon from "../assets/img/atmbersama.jpg";
 import altoIcon from "../assets/img/alto.png";
 import primaIcon from "../assets/img/prima.png";
-
+import pasar1 from "../assets/img/pasar1.png"; // gambar produk
 
 export default function DetailTransaksi() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [selectedAmount, setSelectedAmount] = useState("");
+
+  const product = location.state || {
+    name: "Trimegah Kas Syariah",
+    type: "Reksa Dana Pasar Uang Syariah",
+    image: pasar1,
+    return: "5,31% per tahun",
+    nab: "Rp 1.488,04",
+    date: "29 Oktober 2025",
+  };
 
   const amounts = [
     "100.000", "300.000", "500.000", "1.000.000",
@@ -18,19 +28,19 @@ export default function DetailTransaksi() {
 
   return (
     <div className="detail-transaksi-container">
+      {/* === CARD UTAMA === */}
       <div className="transaksi-card">
-
         {/* Produk Info */}
         <div className="transaksi-section product-info">
-          <h3>Trimegah Kas Syariah</h3>
+          <h3>{product.name}</h3>
           <p>Tingkat pengembalian satu tahun</p>
           <p className="warning">
             *Kinerja Reksa Dana masa lalu tidak menjamin kinerja Reksa Dana masa depan
           </p>
           <div className="product-stats">
-            <div><strong>Return:</strong> 5,31%</div>
-            <div><strong>FUNDtastic+:</strong> Rp. 1.488,04</div>
-            <div><strong>NAB per:</strong> 29/10/2025</div>
+            <div><strong>Return:</strong> {product.return}</div>
+            <div><strong>FUNDtastic+:</strong> {product.nab}</div>
+            <div><strong>NAB per:</strong> {product.date}</div>
           </div>
         </div>
 
@@ -57,6 +67,14 @@ export default function DetailTransaksi() {
           </div>
         </div>
 
+        <div className="referal">
+          <h4>Kode Referal</h4>
+          <input 
+            type="text" 
+            placeholder="Masukan Kode Referal" 
+          />
+        </div>
+
         {/* Biaya & Total */}
         <div className="transaksi-section biaya-total">
           <div className="biaya">
@@ -70,19 +88,17 @@ export default function DetailTransaksi() {
         </div>
 
         {/* Metode Pembayaran */}
-       {/* Metode Pembayaran */}
-<div className="transaksi-section">
-  <h4>Metode Pembayaran</h4>
-  <div className="transfer-card">
-    <span>Transfer (ATM BERSAMA, ALTO, PRIMA)</span>
-    <div className="transfer-icons">
-      <img src={atmIcon} alt="ATM BERSAMA" title="ATM BERSAMA" />
-      <img src={altoIcon} alt="ALTO" title="ALTO" />
-      <img src={primaIcon} alt="PRIMA" title="PRIMA" />
-    </div>
-  </div>
-</div>
-
+        <div className="transaksi-section">
+          <h4>Metode Pembayaran</h4>
+          <div className="transfer-card">
+            <span>Transfer (ATM BERSAMA, ALTO, PRIMA)</span>
+            <div className="transfer-icons">
+              <img src={atmIcon} alt="ATM BERSAMA" title="ATM BERSAMA" />
+              <img src={altoIcon} alt="ALTO" title="ALTO" />
+              <img src={primaIcon} alt="PRIMA" title="PRIMA" />
+            </div>
+          </div>
+        </div>
 
         {/* Info Tambahan */}
         <div className="transaksi-note">
@@ -110,7 +126,23 @@ export default function DetailTransaksi() {
             Lanjut ke Profil <FaCreditCard size={16} />
           </button>
         </div>
+      </div>
 
+      {/* === CARD PRODUK DIPILIH === */}
+      <div className="selected-card-transaksi">
+        <div className="selected-header-transaksi">Produk Dipilih</div>
+        <div className="selected-content-transaksi">
+          <img src={product.image} alt={product.name} className="selected-image-transaksi" />
+          <h3 className="selected-title-transaksi">{product.name}</h3>
+          <p className="selected-type-transaksi">{product.type}</p>
+          <div className="selected-return-transaksi">
+            <FaChartLine /> {product.return}
+          </div>
+          <div className="selected-nab-transaksi">
+            <FaMoneyBillWave /> {product.nab}
+          </div>
+          <div className="selected-date-transaksi">NAB per {product.date}</div>
+        </div>
       </div>
     </div>
   );

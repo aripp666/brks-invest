@@ -1,28 +1,26 @@
-/* === Container Utama === */
 .history-container {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f9fdf9, #f4f7f6);
+  background: linear-gradient(160deg, #f4f7f6, #eaf2ea);
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding: 50px 20px;
   font-family: 'Inter', sans-serif;
   width: 100vw;
-  margin-top: 120px;
+  margin-top: 100px;
 }
 
-/* === Card Utama === */
 .history-card {
   width: 100%;
   max-width: 1200px;
-  background: #ffffff;
-  border-radius: 25px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 35px;
   padding: 40px 35px;
   display: flex;
   flex-direction: column;
   gap: 25px;
-  transition: all 0.3s ease;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
 }
 
 .history-card h2 {
@@ -34,32 +32,31 @@
 .history-card p {
   font-size: 1rem;
   color: #555;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-/* === Layout Kiri & Kanan === */
 .history-layout {
   display: flex;
-  gap: 30px;
-  margin-top: 25px;
+  gap: 35px;
   flex-wrap: wrap;
 }
 
-/* Kiri */
+/* Kiri: Form & List */
 .history-left {
   flex: 1;
-  min-width: 300px;
+  min-width: 320px;
 }
 
 .history-left h3 {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
+  font-size: 1.5rem;
   color: #1ca500;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
 .history-form label {
   display: block;
-  margin: 12px 0 6px;
+  margin: 10px 0 6px;
   font-weight: 600;
   color: #333;
 }
@@ -67,35 +64,37 @@
 .history-form input,
 .history-form select {
   width: 100%;
-  padding: 12px 16px;
-  border-radius: 15px;
-  border: 2px solid #ccc;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid #ccc;
+  background: rgba(255,255,255,0.7);
   font-size: 1rem;
   transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
 }
 
 .history-form input:focus,
 .history-form select:focus {
-  outline: none;
   border-color: #1ca500;
-  box-shadow: 0 4px 15px rgba(28,165,0,0.15);
+  box-shadow: 0 6px 18px rgba(28,165,0,0.15);
 }
 
 /* Tombol Form */
 .form-btns {
   display: flex;
   gap: 15px;
-  margin-top: 12px;
+  margin-top: 15px;
 }
 
 .form-btns button {
   flex: 1;
   padding: 12px 0;
-  border-radius: 18px;
-  border: none;
+  border-radius: 22px;
   font-weight: 600;
   cursor: pointer;
+  border: none;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .form-btns button[type="reset"] {
@@ -104,75 +103,84 @@
 }
 
 .form-btns button[type="reset"]:hover {
-  background: #fff;
   border: 2px solid #1ca500;
+  background: #fff;
   color: #1ca500;
 }
 
 .form-btns button[type="submit"] {
   background: linear-gradient(135deg, #1ca500, #fcd703);
-  color: white;
+  color: #fff;
   font-weight: 700;
-  box-shadow: 0 6px 18px rgba(28,165,0,0.25);
 }
 
 .form-btns button[type="submit"]:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(28,165,0,0.35);
+  box-shadow: 0 8px 25px rgba(28,165,0,0.3);
 }
 
-/* List Transaksi */
+/* List transaksi modern */
 .tx-list {
-  margin-top: 15px;
+  margin-top: 20px;
   list-style: none;
   padding: 0;
-  border-radius: 15px;
-  max-height: 220px;
+  max-height: 260px;
   overflow-y: auto;
-  border: 1px solid #ddd;
-  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .tx-list li {
-  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
   cursor: pointer;
-  transition: all 0.2s ease;
-  border-bottom: 1px solid #eee;
-  border-radius: 12px;
-  margin: 4px;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .tx-list li:hover,
 .tx-list li.selected {
   background: linear-gradient(135deg, #1ca500, #fcd703);
-  color: #fff;
+  color: white;
   font-weight: 600;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(28,165,0,0.25);
 }
 
-/* Kanan: Detail Transaksi */
+/* Kanan: Detail transaksi */
 .history-right {
   flex: 2;
-  min-width: 350px;
-  background: #f0f7f0;
-  padding: 25px 30px;
-  border-radius: 20px;
+  min-width: 360px;
+  background: rgba(240,247,240,0.85);
+  padding: 28px 32px;
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  min-height: 420px;
-  transition: all 0.3s ease;
+  gap: 16px;
+  min-height: 440px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  backdrop-filter: blur(6px);
 }
 
 .tx-detail h3 {
   color: #1ca500;
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
+  border-bottom: 2px solid #dce8dc;
+  padding-bottom: 5px;
 }
 
 .tx-detail p {
   font-size: 0.95rem;
   color: #333;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-bottom: 6px;
 }
 
 .status-cancel {
@@ -186,9 +194,9 @@
 }
 
 .tx-target-btn {
-  margin-top: 12px;
-  padding: 12px 22px;
-  border-radius: 18px;
+  margin-top: 16px;
+  padding: 12px 24px;
+  border-radius: 25px;
   background: linear-gradient(135deg, #1ca500, #fcd703);
   border: none;
   color: white;
@@ -199,7 +207,7 @@
 
 .tx-target-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(28,165,0,0.3);
+  box-shadow: 0 12px 28px rgba(28,165,0,0.3);
 }
 
 .tx-detail.empty {
@@ -212,12 +220,11 @@
   font-size: 1rem;
 }
 
-/* Tombol Kembali */
 .history-back-button {
-  margin-top: 25px;
+  margin-top: 28px;
   align-self: center;
-  padding: 14px 38px;
-  border-radius: 20px;
+  padding: 14px 40px;
+  border-radius: 25px;
   font-weight: 700;
   background: linear-gradient(135deg, #1ca500, #fcd703);
   color: white;
@@ -228,12 +235,18 @@
 
 .history-back-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(28,165,0,0.3);
+  box-shadow: 0 12px 28px rgba(28,165,0,0.3);
 }
 
-/* Responsif */
 @media (max-width: 992px) {
-  .history-layout { flex-direction: column; gap: 20px; }
-  .history-right { min-height: 350px; }
-  .tx-list { max-height: 180px; }
+  .history-layout {
+    flex-direction: column;
+    gap: 25px;
+  }
+  .history-right {
+    min-height: 360px;
+  }
+  .tx-list {
+    max-height: 200px;
+  }
 }
