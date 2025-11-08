@@ -10,6 +10,7 @@ import Success from "./pages/Success";
 import History from "./pages/History";
 import Login from "./pages/Login";      // pastikan path sesuai file kamu
 import Register from "./pages/Register"; // jika ada halaman register
+import ProfileUser from "./pages/ProfileUser"; // halaman profile setelah login
 
 
 function LayoutWithStepper() {
@@ -32,7 +33,7 @@ function LayoutWithStepper() {
   };
 
   // Jika route login, jangan tampilkan Stepper
-  const showStepper = !["/login", "/register"].includes(location.pathname);
+  const showStepper = !["/Login", "/register", "/ProfileUser" ].includes(location.pathname);
 
   return (
     <div style={{ padding: "20px" }}>
@@ -47,8 +48,9 @@ function LayoutWithStepper() {
           <Route path="/konfirmasi" element={<Konfirmasi />} />
           <Route path="/success" element={<Success />} />
           <Route path="/history" element={<History />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/Login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/ProfileUser" element={<ProfileUser />} />
         </Routes>
       </div>
     </div>

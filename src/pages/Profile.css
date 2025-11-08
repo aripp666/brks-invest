@@ -15,6 +15,7 @@
   padding: 60px 20px;
   font-family: "Poppins", "Inter", sans-serif;
   width: 100vw;
+   overflow-x: hidden; /* hilangkan scroll horizontal */
 }
 
 /* === Card Utama === */

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaUserCheck, FaUpload } from "react-icons/fa";
 import "./Profile.css";
 
+
 export default function Profile() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({

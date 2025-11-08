@@ -88,7 +88,7 @@ export default function StepperHeader({ activeStepFromParent = 0 }) {
 
       {/* Login Button */}
       <div className="login-wrapper">
-        <button className="login-button" onClick={() => navigate("/login")}>
+        <button className="login-button" onClick={() => navigate("/Login")}>
           Login
         </button>
       </div>
