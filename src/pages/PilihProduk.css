@@ -12,6 +12,7 @@ body {
   padding-top: 100px;
   text-align: center;
   width: 100vw;
+  overflow: hidden;
   background: radial-gradient(circle at top right, #ffffff, #fff9f4, #fdf5e7);
 }
 
@@ -19,9 +20,9 @@ body {
 .produk-title {
   font-size: 3rem;
   font-weight: 800;
-  color: #d60000;
+  color: #ff7a00;
   letter-spacing: 1px;
-  background: radial-gradient(circle, #d60000, #00984a, #ff7a00);
+  background: radial-gradient(circle, #ff7a00, #00984a, #ff7a00);
   -webkit-background-clip: text;
   color: transparent;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
@@ -44,16 +45,17 @@ body {
 }
 .binder-tabs {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* tengah secara horizontal */
   flex-wrap: nowrap;
   border-radius: 50px 50px 0 0;
   overflow: hidden;
   background: linear-gradient(to right, #ffe97a, #fff8c2);
-  margin-bottom: 0;
+  margin: 0 auto 2rem auto; /* margin atas-bawah & tengah */
   box-shadow: 0 10px 25px rgba(255, 215, 0, 0.25);
   position: sticky;
   top: 0;
   z-index: 50;
+  width: fit-content; /* cukup selebar tab saja */
   transition: all 0.35s ease;
 }
 
@@ -71,6 +73,20 @@ body {
   position: relative;
   transition: all 0.35s ease;
   border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+.tab-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* jarak icon dan label */
+}
+.tab-icon {
+  font-size: 1.3rem;
+}
+
+.tab-label {
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .binder-tab:hover {
