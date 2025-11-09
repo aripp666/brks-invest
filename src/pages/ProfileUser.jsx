@@ -166,7 +166,47 @@ const ProfileUser = () => {
         return (
           <div className="profileUser-menu-detail-content">
             <h4>FATCA</h4>
-            <label>Apakah Warga Negara AS?</label>
+            <label>Are you a U.S citizen?</label>
+            <select
+              value={userData.fatca}
+              onChange={(e) => handleChange(null, "fatca", e.target.value)}
+            >
+              <option>No</option>
+              <option>Yes</option>
+            </select>
+            <label>Are you a U.S resident?</label>
+            <select
+              value={userData.fatca}
+              onChange={(e) => handleChange(null, "fatca", e.target.value)}
+            >
+              <option>No</option>
+              <option>Yes</option>
+            </select>
+            <label>Are you a U.S resident alien?</label>
+            <select
+              value={userData.fatca}
+              onChange={(e) => handleChange(null, "fatca", e.target.value)}
+            >
+              <option>No</option>
+              <option>Yes</option>
+            </select>
+            <label>Were you born in the U.S.?</label>
+            <select
+              value={userData.fatca}
+              onChange={(e) => handleChange(null, "fatca", e.target.value)}
+            >
+              <option>No</option>
+              <option>Yes</option>
+            </select>
+            <label>Do you have a current U.S residence address?</label>
+            <select
+              value={userData.fatca}
+              onChange={(e) => handleChange(null, "fatca", e.target.value)}
+            >
+              <option>No</option>
+              <option>Yes</option>
+            </select>
+            <label>Do you have a current U.S mailing address (including a U.S P.O. Box)?</label>
             <select
               value={userData.fatca}
               onChange={(e) => handleChange(null, "fatca", e.target.value)}
@@ -181,6 +221,16 @@ const ProfileUser = () => {
           <div className="profileUser-menu-detail-content">
             <h4>Risk Profile</h4>
             <label>Apakah tujuan Anda dalam berinvestasi?</label>
+            <select><option>-- Pilih --</option></select>
+            <label>Berapa lama jangka waktu investasi yang Anda inginkan?</label>
+            <select><option>-- Pilih --</option></select>
+            <label>Seberapa dalam pemahaman Anda tentang berbagai instrumen investasi?</label>
+            <select><option>-- Pilih --</option></select>
+            <label>Apa yang akan Anda lakukan jika investasi Anda merugi hingga 25% dari prinsipal?</label>
+            <select><option>-- Pilih --</option></select>
+            <label>Bagaimanakah komposisi investasi yang Anda inginkan?</label>
+            <select><option>-- Pilih --</option></select>
+            <label>Berapa persen aset yang Anda alokasikan untuk investasi?</label>
             <select><option>-- Pilih --</option></select>
           </div>
         );
