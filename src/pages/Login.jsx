@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Email:", email, "Password:", password);
-    navigate("/ProfileUser");
+    navigate("/Dashboard");
   };
 
   return (

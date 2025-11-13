@@ -11,6 +11,8 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import pasar1 from "../assets/img/pasar1.png";
+import pasar2 from "../assets/img/pasar2.png";
+import pasar3 from "../assets/img/pasar3.png";
 import "./PilihProduk.css";
 
 export default function PilihProduk() {
@@ -29,7 +31,7 @@ export default function PilihProduk() {
 
   const products = {
     pasaruang: [
-      { id: 1, name: "Insight Money Syariah", return: 6.1, nab: "Rp 1.714,09", date: "Oct 29, 2025", image: pasar1, top: true },
+      { id: 1, name: "Insight Money Syariah", return: 6.1, nab: "Rp 1.714,09", date: "Oct 29, 2025", image: pasar2, top: true },
       { id: 2, name: "Trimegah Kas Syariah", return: 5.31, nab: "Rp 1.488,04", date: "Oct 29, 2025", image: pasar1 },
       { id: 3, name: "Eastspring Syariah Money Market", return: -3.13, nab: "Rp 1.198,05", date: "Oct 29, 2025", image: pasar1 },
     ],
@@ -38,7 +40,7 @@ export default function PilihProduk() {
       { id: 5, name: "BNI-AM Dana Syariah", return: -6.75, nab: "Rp 1.933,54", date: "Oct 29, 2025", image: pasar1 },
     ],
     saham: [
-      { id: 6, name: "Manulife Saham Syariah Asia Pasifik", return: 10.24, nab: "Rp 1.894,21", date: "Oct 29, 2025", image: pasar1 },
+      { id: 6, name: "Manulife Saham Syariah Asia Pasifik", return: 10.24, nab: "Rp 1.894,21", date: "Oct 29, 2025", image: pasar3 },
       { id: 7, name: "BNP Paribas Pesona Syariah", return: -9.61, nab: "Rp 1.788,32", date: "Oct 29, 2025", image: pasar1 },
     ],
   };

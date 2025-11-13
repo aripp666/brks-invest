@@ -16,6 +16,7 @@ import {
   FaUpload,
 } from "react-icons/fa";
 import "./ProfileUser.css";
+import Header from "../components/Header.jsx";
 
 const ProfileUser = () => {
   const [activeMenu, setActiveMenu] = useState("Alamat Sesuai KTP");
@@ -285,6 +286,7 @@ const ProfileUser = () => {
 
   return (
     <div className="profileUser-page">
+      <Header />
       <div className="profileUser-container">
         <div className="profileUser-sidebar-menu">
           <h2 className="profileUser-sidebar-title">Menu Profil</h2>

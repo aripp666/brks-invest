@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./History.css";
+import Header from "../components/Header.jsx";
 
 export default function History() {
   const navigate = useNavigate();
-
   const [selectedTx, setSelectedTx] = useState(null);
 
-  // Contoh data transaksi
+  // 📊 Contoh data transaksi
   const transactions = [
     {
       date: "29/04/2025",
@@ -38,98 +38,118 @@ export default function History() {
   ];
 
   return (
-    <div className="history-container">
-      <div className="history-card">
-        <h2>Riwayat Transaksi</h2>
-        <p>Kelola dan lihat detail transaksi Kamu.</p>
+    <div className="history-page">
+      {/* 🌟 Header Elegan */}
+      <Header />
 
-        <div className="history-layout">
-          {/* Kiri: Form Pencarian */}
-          <div className="history-left">
-            <h3>Formulir Cari Riwayat Transaksi</h3>
-            <form className="history-form">
-              <label>No. Rekening Investasi*</label>
-              <select>
-                <option>Pilih No Rekening</option>
-                <option>I2504124018</option>
-                <option>I2504124017</option>
-              </select>
+      {/* 📜 Konten Riwayat */}
+      <div className="history-container">
+        <div className="history-card">
+          <h2>Riwayat Transaksi</h2>
+          <p>Kelola dan lihat detail transaksi Kamu.</p>
 
-              <label>Nama Produk</label>
-              <select>
-                <option>Pilih Nama Produk</option>
-                <option>Insight Money Syariah</option>
-                <option>Trimegah Kas Syariah</option>
-              </select>
+          <div className="history-layout">
+            {/* 🧾 Kiri: Form Filter */}
+            <div className="history-left">
+              <h3>Formulir Cari Riwayat Transaksi</h3>
+              <form className="history-form">
+                <label>No. Rekening Investasi*</label>
+                <select>
+                  <option>Pilih No Rekening</option>
+                  <option>I2504124018</option>
+                  <option>I2504124017</option>
+                </select>
 
-              <label>Tanggal Mulai</label>
-              <input type="date" />
+                <label>Nama Produk</label>
+                <select>
+                  <option>Pilih Nama Produk</option>
+                  <option>Insight Money Syariah</option>
+                  <option>Trimegah Kas Syariah</option>
+                </select>
 
-              <label>Tanggal Selesai</label>
-              <input type="date" />
+                <label>Tanggal Mulai</label>
+                <input type="date" />
 
-              <label>Tipe Transaksi</label>
-              <select>
-                <option>Subscription</option>
-                <option>Redemption</option>
-              </select>
+                <label>Tanggal Selesai</label>
+                <input type="date" />
 
-              <label>Status Transaksi</label>
-              <select>
-                <option>Completed</option>
-                <option>Cancelled</option>
-                <option>Pending</option>
-              </select>
+                <label>Tipe Transaksi</label>
+                <select>
+                  <option>Subscription</option>
+                  <option>Redemption</option>
+                </select>
 
-              <div className="form-btns">
-                <button type="reset">Hapus</button>
-                <button type="submit">Cari</button>
-              </div>
+                <label>Status Transaksi</label>
+                <select>
+                  <option>Completed</option>
+                  <option>Cancelled</option>
+                  <option>Pending</option>
+                </select>
 
-              <h4>Daftar Transaksi</h4>
-              <ul className="tx-list">
-                {transactions.map((tx, index) => (
-                  <li
-                    key={index}
-                    className={selectedTx === tx ? "selected" : ""}
-                    onClick={() => setSelectedTx(tx)}
+                <div className="form-btns">
+                  <button type="reset">Hapus</button>
+                  <button type="submit">Cari</button>
+                </div>
+
+                <h4>Daftar Transaksi</h4>
+                <ul className="tx-list">
+                  {transactions.map((tx, index) => (
+                    <li
+                      key={index}
+                      className={selectedTx === tx ? "selected" : ""}
+                      onClick={() => setSelectedTx(tx)}
+                    >
+                      {tx.product} - {tx.date}
+                    </li>
+                  ))}
+                </ul>
+              </form>
+            </div>
+
+            {/* 📄 Kanan: Detail Transaksi */}
+            <div className="history-right">
+              {selectedTx ? (
+                <div className="tx-detail">
+                  <h3>Detail Transaksi</h3>
+                  <p><strong>Tanggal Transaksi:</strong> {selectedTx.date}</p>
+                  <p><strong>Waktu Transaksi:</strong> {selectedTx.time}</p>
+                  <p><strong>No. Pesanan:</strong> {selectedTx.orderNo}</p>
+                  <p><strong>No. Rek. Investasi:</strong> {selectedTx.investNo}</p>
+                  <p><strong>Nama Produk:</strong> {selectedTx.product}</p>
+                  <p><strong>Tipe Transaksi:</strong> {selectedTx.type}</p>
+                  <p><strong>Cara Pembayaran:</strong> {selectedTx.method}</p>
+                  <p
+                    className={
+                      selectedTx.status === "Cancelled"
+                        ? "status-cancel"
+                        : "status-complete"
+                    }
                   >
-                    {tx.product} - {tx.date}
-                  </li>
-                ))}
-              </ul>
-            </form>
+                    <strong>Status:</strong> {selectedTx.status}
+                  </p>
+                  <p><strong>Nilai Transaksi:</strong> {selectedTx.amount}</p>
+                  <p><strong>Biaya Transaksi:</strong> {selectedTx.fee}</p>
+                  <p><strong>Total Transaksi:</strong> {selectedTx.total}</p>
+
+                  <button className="tx-target-btn">
+                    Lihat Tujuan Pembayaran
+                  </button>
+                </div>
+              ) : (
+                <div className="tx-detail empty">
+                  Pilih transaksi untuk melihat detail
+                </div>
+              )}
+            </div>
           </div>
 
-          {/* Kanan: Detail Transaksi */}
-          <div className="history-right">
-            {selectedTx ? (
-              <div className="tx-detail">
-                <h3>Detail Transaksi</h3>
-                <p><strong>Tanggal Transaksi:</strong> {selectedTx.date}</p>
-                <p><strong>Waktu Transaksi:</strong> {selectedTx.time}</p>
-                <p><strong>No. Pesanan:</strong> {selectedTx.orderNo}</p>
-                <p><strong>No. Rek. Investasi:</strong> {selectedTx.investNo}</p>
-                <p><strong>Nama Produk:</strong> {selectedTx.product}</p>
-                <p><strong>Tipe Transaksi:</strong> {selectedTx.type}</p>
-                <p><strong>Cara Pembayaran:</strong> {selectedTx.method}</p>
-                <p className={selectedTx.status === "Cancelled" ? "status-cancel" : "status-complete"}>
-                  <strong>Status:</strong> {selectedTx.status}
-                </p>
-                <p><strong>Nilai Transaksi:</strong> {selectedTx.amount}</p>
-                <p><strong>Biaya Transaksi:</strong> {selectedTx.fee}</p>
-                <p><strong>Total Transaksi:</strong> {selectedTx.total}</p>
-                <button className="tx-target-btn">Lihat Tujuan Pembayaran</button>
-              </div>
-            ) : (
-              <div className="tx-detail empty">Pilih transaksi untuk melihat detail</div>
-            )}
-          </div>
+          <button
+            className="history-back-button"
+            onClick={() => navigate("/pilih-produk")}
+          >
+            Kembali ke Produk
+          </button>
         </div>
-
-        <button className="history-back-button" onClick={() => navigate("/pilih-produk")}>
-          Kembali ke Produk
-        </button>
       </div>
     </div>
   );
