@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Header.css";
 import logoBRK from "../assets/logo-brk.png";
+import { Link } from "react-router-dom";
+
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,13 +27,13 @@ export default function Header() {
         </div>
 
         {/* 🔗 Navigation Menu */}
-        <nav className="header-right">
-          <a href="/Dashboard#" className="nav-link active">Portfolio</a>
-          <a href="/pilih-produk" className="nav-link">Produk</a>
-          <a href="/History" className="nav-link">Riwayat</a>
-          <a href="/ProfileUser" className="nav-link">Profil</a>
-          <a href="/Login" className="nav-link logout">Logout</a>
-        </nav>
+<nav className="header-right">
+  <Link to="/Dashboard" className="nav-link active">Portfolio</Link>
+  <Link to="/pilih-produk" className="nav-link">Produk</Link>
+  <Link to="/History" className="nav-link">Riwayat</Link>
+  <Link to="/ProfileUser" className="nav-link">Profil</Link>
+  <Link to="/Login" className="nav-link logout">Logout</Link>
+</nav>
       </div>
     </header>
   );
