@@ -124,13 +124,11 @@ body {
 /* Cards */
 .produk-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 🔥 selalu 3 kolom */
   gap: 2rem;
-  
-  /* Tambahan agar card center */
-  max-width: 1200px;   /* batas lebar grid */
-  margin: 0 auto;      /* center */
-  padding: 3rem 1rem;  /* padding rapi */
+  max-width: 1000px; /* sesuaikan agar muat 3 card */
+  margin: 0 auto;
+  padding: 3rem 1rem;
 }
 
 

@@ -29,7 +29,8 @@ const Login = () => {
         {/* Konten login */}
         <div className="login-content">
           <img src={logoBRK} alt="BRK Logo" className="login-logo" />
-          <h1 className="login-title">Selamat Datang di BRK Syariah Invest</h1>
+          <h1 className="login-title">Selamat Datang di</h1>
+         <h1 className="login-title">BRK Syariah Invest</h1> 
           <p className="login-subtitle">
             Masuk menggunakan akun BRK Syariah Invest Anda
           </p>
