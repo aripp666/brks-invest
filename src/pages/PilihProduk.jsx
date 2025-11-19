@@ -53,7 +53,7 @@ export default function PilihProduk() {
     <div className="produk-page">
       <div className="produk-header" data-aos="fade-down">
         <h1 className="produk-title">
-          <span className="highlight-green">BRKS Invest Syariah</span>
+          <span className="highlight-green">BRK Syariah Invest </span>
         </h1>
         <p className="produk-subtitle">Berkah untuk Semua 🌿</p>
       </div>
