@@ -126,8 +126,13 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  padding: 3rem 4rem;
+  
+  /* Tambahan agar card center */
+  max-width: 1200px;   /* batas lebar grid */
+  margin: 0 auto;      /* center */
+  padding: 3rem 1rem;  /* padding rapi */
 }
+
 
 .produk-card {
   background: #ffffff;
